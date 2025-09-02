@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import formidable from 'formidable';
 import fs from 'fs';
 import path from 'path';
-import pool from '@/lib/db'; // adjust your import path accordingly
+import pool from '@/lib/db'; 
 
 export const config = {
   api: {
@@ -39,6 +39,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   
         res.status(200).json({ message: 'School added successfully' });
       } catch (error) {
+        console.log("Error: ", error);
         res.status(500).json({ error: 'Failed to add school' });
       }
     });
@@ -48,6 +49,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const [rows] = await pool.query('SELECT id, name, address, city, image FROM schools');
       res.status(200).json(rows);
     } catch (error) {
+        console.log("Error:" , error);
       res.status(500).json({ error: 'Failed to fetch schools' });
     }
   } else {
