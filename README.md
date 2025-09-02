@@ -1,4 +1,4 @@
-````markdown
+````
 # 🏫 School Directory
 
 A full-stack mini-project built with **Next.js** and **MySQL**, allowing users to add schools with images and display them in a responsive directory.  
