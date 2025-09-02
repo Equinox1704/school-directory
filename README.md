@@ -1,36 +1,140 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+````markdown
+# 🏫 School Directory
 
-## Getting Started
+A full-stack mini-project built with **Next.js** and **MySQL**, allowing users to add schools with images and display them in a responsive directory.  
+This project demonstrates form handling, file uploads, API routes, and deployment with **Vercel** + **Railway MySQL**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- 📌 **Add School** page — form with validation for name, address, city, state, contact number, email, and image upload.  
+- 🖼️ **Image Uploads** — school images stored in the `/public/schoolImages` folder.  
+- 📋 **Show Schools** page — responsive grid layout displaying schools with details and images.  
+- ✅ **Validation** — input validation for contact numbers and emails with `react-hook-form`.  
+- ⚡ **Full-stack** — Next.js API Routes handle database operations and file uploads.  
+- ☁️ **Deployment** — frontend hosted on Vercel, backend/database on Railway MySQL.  
+- 📱 **Responsive** — optimized for both desktop and mobile.  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** [Next.js (App Router)](https://nextjs.org/), [React Hook Form](https://react-hook-form.com/), [Tailwind CSS](https://tailwindcss.com/)  
+- **Backend:** Next.js API Routes, Node.js  
+- **Database:** MySQL (Railway)  
+- **Deployment:** Vercel (frontend) + Railway (database)  
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js v16 or higher  
+- A MySQL database (local or hosted e.g. Railway)
+
+### Setup
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/school-directory.git
+   cd school-directory
+````
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env.local` file in the root with your DB credentials:
+
+   ```bash
+   DB_HOST=your_mysql_host
+   DB_USER=your_mysql_user
+   DB_PASSWORD=your_mysql_password
+   DB_NAME=your_database_name
+   ```
+
+4. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open the app:
+
+   * Add schools → [http://localhost:3000/addSchool](http://localhost:3000/addSchool)
+   * View schools → [http://localhost:3000/showSchools](http://localhost:3000/showSchools)
+
+---
+
+## 📂 Project Structure
+
+```
+school-directory/
+├── src/
+│   ├── app/
+│   │   ├── api/schools/route.ts    # API routes for adding/fetching schools
+│   │   ├── addSchool/page.tsx      # Add School form page
+│   │   ├── showSchools/page.tsx    # Show Schools page
+│   │   └── layout.tsx              # Root layout
+│   ├── lib/db.ts                   # MySQL connection pool utility
+│   ├── styles/globals.css          # Global + Tailwind styles
+│   └── components/                 # Reusable UI components
+├── public/schoolImages/            # Uploaded school images
+├── .env.local                      # Environment variables
+├── next.config.js                  # Next.js config
+├── tailwind.config.js              # Tailwind CSS config
+├── package.json
+└── tsconfig.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🌐 Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **GitHub Repo:** [https://github.com/your-username/school-directory](https://github.com/your-username/school-directory)
+* **Live Site (Vercel):** [https://your-vercel-url.vercel.app](https://your-vercel-url.vercel.app)
 
-## Learn More
+> ⚠️ Ensure environment variables (`DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`) are correctly set in Vercel for production.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📸 Screenshots (Optional)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+*Add screenshots of the Add School and Show Schools pages here for better presentation.*
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🗒️ Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Images are stored in `/public/schoolImages`. For production scalability, consider using cloud storage (AWS S3, Cloudinary, or Supabase).
+* Make sure the MySQL schema matches form fields. Example schema:
+
+  ```sql
+  CREATE TABLE schools (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    address TEXT NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    state VARCHAR(100) NOT NULL,
+    contact VARCHAR(20) NOT NULL,
+    email_id VARCHAR(255) NOT NULL,
+    image_path VARCHAR(255) NOT NULL
+  );
+  ```
+
+---
+
+## 🙏 Acknowledgments
+
+This project was created as part of a **Web Development Assignment** showcasing full-stack development with **Next.js + MySQL**.
+
+---
+
+💡 *Feel free to fork this project, open issues, or submit pull requests for improvements!*
+
+```
